@@ -7,7 +7,9 @@
     "config": "echo \"Generating project configs\"",
     "test": "echo \"Rununing unit tests\"",
     "deploy-purchase": "echo \"Deploying purchase service\"",
-    "deploy-billing": "echo \"Deploying billing service\""
+    "deploy-billing": "echo \"Deploying billing service\"",
+    "deploy-webhook": "echo \"Deploying webhook service\"",
+    "deploy-connectivity": "echo \"Deploying connectivity service\""
   },
   "author": "",
   "license": "ISC",
