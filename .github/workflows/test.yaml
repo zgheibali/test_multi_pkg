@@ -42,3 +42,21 @@ jobs:
       - uses: actions/checkout@master
       - name: Deploy billing service
         run: npm run deploy-billing
+
+  deploy-webhook-service:
+    name: deploy-webhook-service
+    runs-on: [ubuntu-latest]
+    needs: run-tests
+    steps:
+      - uses: actions/checkout@master
+      - name: Deploy webhook service
+        run: npm run deploy-webhook
+
+  deploy-connectivity-service:
+    name: deploy-connectivity-service
+    runs-on: [ubuntu-latest]
+    needs: run-tests
+    steps:
+      - uses: actions/checkout@master
+      - name: Deploy connectivity service
+        run: npm run deploy-connectivity
