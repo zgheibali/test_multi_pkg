@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Deploy purchase service
-        run: npm run deploy:purchase
+        run: npm run deploy-purchase
 
   deploy-billing-service:
     name: deploy-billing-service
@@ -41,4 +41,4 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Deploy billing service
-        run: npm run deploy:billing
+        run: npm run deploy-billing
