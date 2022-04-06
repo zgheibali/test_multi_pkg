@@ -8,7 +8,7 @@ on:
 jobs:
   generate-configs:
     name: generate-configs
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     steps:
       - uses: actions/checkout@master
       - name: Install dependencies
@@ -18,7 +18,7 @@ jobs:
 
   run-tests:
     name: run-tests
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: generate-configs
     steps:
       - uses: actions/checkout@master
@@ -27,7 +27,7 @@ jobs:
 
   deploy-purchase-service:
     name: deploy-purchase-service
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: run-tests
     steps:
       - uses: actions/checkout@master
@@ -36,7 +36,7 @@ jobs:
 
   deploy-billing-service:
     name: deploy-billing-service
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: run-tests
     steps:
       - uses: actions/checkout@master
@@ -45,7 +45,7 @@ jobs:
 
   deploy-webhook-service:
     name: deploy-webhook-service
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: run-tests
     steps:
       - uses: actions/checkout@master
@@ -54,7 +54,7 @@ jobs:
 
   deploy-connectivity-service:
     name: deploy-connectivity-service
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: run-tests
     steps:
       - uses: actions/checkout@master
