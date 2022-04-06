@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "config": "echo \"Generating project configs\"",
+    "test": "echo \"Rununing unit tests\"",
+    "deploy-purchase": "echo \"Deploying purchase service\"",
+    "deploy-billing": "echo \"Deploying billing service\""
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
