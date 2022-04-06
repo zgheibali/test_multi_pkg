@@ -14,7 +14,7 @@ jobs:
       - name: Install dependencies
         run: npm install 
       - name: Generate configuration
-        run: lerna run config
+        run: npm run config
 
   run-tests:
     name: run-tests
@@ -23,4 +23,22 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run unit tests
-        run: lerna run test
+        run: npm run test
+
+  deploy-purchase-service:
+    name: deploy-purchase-service
+    runs-on: [ubuntu-latest]
+    needs: run-tests
+    steps:
+      - uses: actions/checkout@master
+      - name: Deploy purchase service
+        run: npm run deploy:purchase
+
+  deploy-billing-service:
+    name: deploy-billing-service
+    runs-on: [ubuntu-latest]
+    needs: run-tests
+    steps:
+      - uses: actions/checkout@master
+      - name: Deploy billing service
+        run: npm run deploy:billing
