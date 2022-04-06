@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "config": "echo \"Run test in configs service\"",
+    "test": "echo \"Run test in mailing service\""
   },
   "author": "",
   "license": "ISC",
