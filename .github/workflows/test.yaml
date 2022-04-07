@@ -5,8 +5,8 @@ on:
     branches:
       - main
 env:
-  MY_MAIN_ENV: 123
-  MY_MAIN_ENV_2: 456
+  MOLOTOV_MAIN: 123
+
 jobs:
   run-tests:
     name: run-tests
@@ -27,8 +27,9 @@ jobs:
       - name: Deploy purchase service
         run: npm run deploy-purchase
         env: 
-          MY_PURCHASE_ENV: 123
-          MY_PURCHASE_ENV_2: 456
+          MOLOTOV_PURCHASE_ENV: 123
+        with:
+          MOLOTOV_PURCHASE_WITH: 123
 
   deploy-billing-service:
     name: deploy-billing-service
@@ -41,8 +42,9 @@ jobs:
       - name: Deploy billing service
         run: npm run deploy-billing
         env: 
-          MY_BILLING_ENV: 123
-          MY_BILLING_ENV_2: 456
+          MOLOTOV_BILLING_ENV: 123
+        with:
+          MOLOTOV_BILLING_WITH: 123
 
   deploy-connectivity-service:
     name: deploy-connectivity-service
@@ -55,5 +57,6 @@ jobs:
       - name: Deploy connectivity service
         run: npm run deploy-connectivity
         env: 
-          MY_CONNECTIVITY_ENV: 123
-          MY_CONNECTIVITY_ENV_2: 456
+          MOLOTOV_CONNECTIVITY_ENV: 123
+        with:
+          MOLOTOV_CONNECTIVITY_WITH: 123
