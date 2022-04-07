@@ -6,16 +6,6 @@ on:
       - main
 
 jobs:
-  generate-configs:
-    name: generate-configs
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@master
-      - name: Install dependencies
-        run: npm install
-      - name: Generate configuration
-        run: npm run config
-
   run-tests:
     name: run-tests
     runs-on: [ubuntu-latest]
@@ -31,6 +21,8 @@ jobs:
     needs: run-tests
     steps:
       - uses: actions/checkout@master
+      - name: Install dependencies
+        run: npm install
       - name: Deploy purchase service
         run: npm run deploy-purchase
 
@@ -40,6 +32,8 @@ jobs:
     needs: run-tests
     steps:
       - uses: actions/checkout@master
+      - name: Install dependencies
+        run: npm install
       - name: Deploy billing service
         run: npm run deploy-billing
 
@@ -49,5 +43,7 @@ jobs:
     needs: run-tests
     steps:
       - uses: actions/checkout@master
+      - name: Install dependencies
+        run: npm install
       - name: Deploy connectivity service
         run: npm run deploy-connectivity
