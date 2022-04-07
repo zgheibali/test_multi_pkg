@@ -6,10 +6,9 @@
   "scripts": {
     "config": "echo \"Generating project configs\"",
     "test": "echo \"Rununing unit tests\"",
-    "deploy-purchase": "echo \"Deploying purchase service\"",
-    "deploy-billing": "echo \"Deploying billing service\"",
-    "deploy-webhook": "echo \"Deploying webhook service\"",
-    "deploy-connectivity": "echo \"Deploying connectivity service\""
+    "deploy-purchase": "ts-node ./packages/purchase/deploy.ts",
+    "deploy-billing": "ts-node ./packages/billing/deploy.ts",
+    "deploy-connectivity": "ts-node ./packages/connectivity/deploy.ts"
   },
   "author": "",
   "license": "ISC",
