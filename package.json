@@ -14,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "ts-node": "^10.7.0"
   }
 }
