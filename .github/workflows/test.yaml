@@ -28,8 +28,6 @@ jobs:
         run: npm run deploy-purchase
         env:
           MOLOTOV_PURCHASE_ENV: 123
-        with:
-          MOLOTOV_PURCHASE_WITH: 123
 
   deploy-billing-service:
     name: deploy-billing-service
@@ -43,8 +41,6 @@ jobs:
         run: npm run deploy-billing
         env:
           MOLOTOV_BILLING_ENV: 123
-        with:
-          MOLOTOV_BILLING_WITH: 123
 
   deploy-connectivity-service:
     name: deploy-connectivity-service
@@ -58,5 +54,3 @@ jobs:
         run: npm run deploy-connectivity
         env:
           MOLOTOV_CONNECTIVITY_ENV: 123
-        with:
-          MOLOTOV_CONNECTIVITY_WITH: 123
