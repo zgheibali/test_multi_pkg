@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - main
-
+env:
+  MY_MAIN_ENV: 123
+  MY_MAIN_ENV_2: 456
 jobs:
   run-tests:
     name: run-tests
@@ -24,6 +26,9 @@ jobs:
         run: npm install
       - name: Deploy purchase service
         run: npm run deploy-purchase
+        env: 
+          MY_PURCHASE_ENV: 123
+          MY_PURCHASE_ENV_2: 456
 
   deploy-billing-service:
     name: deploy-billing-service
@@ -35,6 +40,9 @@ jobs:
         run: npm install
       - name: Deploy billing service
         run: npm run deploy-billing
+        env: 
+          MY_BILLING_ENV: 123
+          MY_BILLING_ENV_2: 456
 
   deploy-connectivity-service:
     name: deploy-connectivity-service
@@ -46,3 +54,6 @@ jobs:
         run: npm install
       - name: Deploy connectivity service
         run: npm run deploy-connectivity
+        env: 
+          MY_CONNECTIVITY_ENV: 123
+          MY_CONNECTIVITY_ENV_2: 456
