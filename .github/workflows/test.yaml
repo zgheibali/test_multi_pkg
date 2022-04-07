@@ -24,6 +24,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: npm install
+      - name: Set env to MOLOTOV
+        run: echo "STAGE=MOLOTOV" >> $GITHUB_ENV
       - name: Deploy purchase service
         run: npm run deploy-purchase
         env:
@@ -37,6 +39,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: npm install
+      - name: Set env to MOLOTOV
+        run: echo "STAGE=MOLOTOV" >> $GITHUB_ENV
       - name: Deploy billing service
         run: npm run deploy-billing
         env:
@@ -50,6 +54,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: npm install
+      - name: Set env to MOLOTOV
+        run: echo "STAGE=MOLOTOV" >> $GITHUB_ENV
       - name: Deploy connectivity service
         run: npm run deploy-connectivity
         env:
