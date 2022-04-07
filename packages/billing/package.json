@@ -3,13 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "config": "echo \"Run test in billing service\"",
-    "test": "echo \"Run test in billing service\""
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "stripe": "^8.215.0"
-  }
+  "dependencies": {}
 }
