@@ -10,7 +10,9 @@
     "test-connectivity": "echo \"Rununing connectivity unit tests\"",
     "deploy-purchase": "ts-node ./packages/purchase/deploy.ts",
     "deploy-billing": "ts-node ./packages/billing/deploy.ts",
-    "deploy-connectivity": "ts-node ./packages/connectivity/deploy.ts"
+    "deploy-connectivity": "ts-node ./packages/connectivity/deploy.ts",
+    "deploy-after-all": "ts-node ./packages/after_all/deploy.ts"
+
   },
   "author": "",
   "license": "ISC",
