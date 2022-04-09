@@ -84,6 +84,7 @@ jobs:
     name: deploy-after-all-service
     runs-on:
       - ubuntu-latest
+    if: always()
     needs:
       - deploy-purchase-service
       - deploy-connectivity-service
