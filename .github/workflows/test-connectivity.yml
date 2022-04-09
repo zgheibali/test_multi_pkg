@@ -4,7 +4,7 @@ on:
   push:
     branches-ignore:
       - live
-      - master
+      - main
     paths:
       - packages/connectivity/**
 
@@ -13,6 +13,6 @@ jobs:
     name: run-test-connectivity-tests
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - name: Run connectivity unit tests
         run: npm run test-connectivity
