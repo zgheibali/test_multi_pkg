@@ -43,9 +43,13 @@ jobs:
       - ubuntu-latest
     needs: analyse-services
     env:
-      purchase_change: ${{ needs.analyse-services.outputs.purchase_change }}
-      billing_change: ${{ needs.analyse-services.outputs.billing_change }}
-      connectivity_change: ${{ needs.analyse-services.outputs.connectivity_change }}
+      test: ${{ needs.analyse-services.outputs.purchase_change }}
+      test2: ${{ needs.analyse-services.outputs.purchase_change }} == 'true'
+      test3: ${{ needs.analyse-services.outputs.purchase_change }} == true
+      test4:  needs.analyse-services.outputs.purchase_change == "true"
+      test5: ${{ needs.analyse-services.outputs.purchase_change == "true" }}
+
+
     if: ${{ needs.analyse-services.outputs.purchase_change }} == "true"
     steps:
       - uses: actions/checkout@v3
@@ -70,7 +74,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     needs: analyse-services
-    if: false
+    if: ${{ needs.analyse-services.outputs.billing_change }} == "true"
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
