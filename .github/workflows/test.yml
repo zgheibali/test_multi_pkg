@@ -1,4 +1,4 @@
-name: deploy-connectivity
+name: test ci/cd
 
 on:
   push:
