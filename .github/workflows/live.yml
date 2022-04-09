@@ -16,4 +16,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run unit tests
-        run: lerna run deploy --since origin@main
+        run: lerna run deploy --since origin/main
