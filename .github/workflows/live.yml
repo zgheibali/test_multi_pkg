@@ -6,7 +6,7 @@ on:
       - live
 
 jobs:
-  analyse
+  analyse:
     name: services-that-needs-dep
     runs-on: [ubuntu-latest]
     steps:
