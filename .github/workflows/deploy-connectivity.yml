@@ -1,20 +1,20 @@
-name: deploy-purchase ci/cd-workflow
+name: deploy-connectivity
 
 on:
   push:
     branches:
       - live
     paths:
-      - packages/purchase/*
+      - packages/connectivity/**
 
 jobs:
-  deploy-purchase-service:
-    name: deploy-purchase-service
+  deploy-connectivity-service:
+    name: deploy-connectivity-service
     runs-on: [ubuntu-latest]
     needs: run-tests
     steps:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: npm install
-      - name: Deploy purchase service
-        run: npm run deploy-purchase
+      - name: Deploy connectivity service
+        run: npm run deploy-connectivity

@@ -1,4 +1,4 @@
-name: test-billing ci/cd-workflow
+name: test-billing
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - live
       - master
     paths:
-      - packages/billing/*
+      - packages/billing/**
     
 
 jobs:

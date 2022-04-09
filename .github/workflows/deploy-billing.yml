@@ -1,11 +1,10 @@
-name: deploy-billing ci/cd-workflow
-
+name: deploy-billing
 on:
   push:
     branches:
       - live
     paths:
-      - packages/billing/*
+      - packages/billing/**
 
 jobs:
   deploy-billing-service:

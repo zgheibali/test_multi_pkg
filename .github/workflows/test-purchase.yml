@@ -1,4 +1,4 @@
-name: test-purchase ci/cd-workflow
+name: test-purchase
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - live
       - master
     paths:
-      - packages/purchase/*
+      - packages/purchase/**
     
 
 jobs:
