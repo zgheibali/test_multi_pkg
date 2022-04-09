@@ -47,8 +47,7 @@ jobs:
       test2: ${{ needs.analyse-services.outputs.purchase_change }} == 'true'
       test3: ${{ needs.analyse-services.outputs.purchase_change }} == true
       test4:  needs.analyse-services.outputs.purchase_change == "true"
-      test5: ${{ needs.analyse-services.outputs.purchase_change == "true" }}
-
+      test5: ${{ needs.analyse-services.outputs.purchase_change == true }}
 
     if: ${{ needs.analyse-services.outputs.purchase_change }} == "true"
     steps:
