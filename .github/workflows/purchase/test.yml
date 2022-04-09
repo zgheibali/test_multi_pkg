@@ -1,20 +1,22 @@
-name: test ci/cd-workflow
+name: test-purchase ci/cd-workflow
 
 on:
   push:
-    branches:
-      - main
-env:
-  MOLOTOV_MAIN: 123
+    branches-ignore:
+      - live
+      - master
+    paths:
+      - packages/purchase/*
+    
 
 jobs:
   run-tests:
-    name: run-tests
+    name: run-test-purchase-tests
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@master
-      - name: Run unit tests
-        run: npm run test
+      - name: Run purchase unit tests
+        run: npm run test-purchase
 
   deploy-purchase-service:
     name: deploy-purchase-service
@@ -24,12 +26,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: npm install
-      - name: Set env to MOLOTOV
-        run: echo "STAGE=MOLOTOV" >> $GITHUB_ENV
       - name: Deploy purchase service
         run: npm run deploy-purchase
-        env:
-          MOLOTOV_PURCHASE: 123
 
   deploy-billing-service:
     name: deploy-billing-service
@@ -39,8 +37,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: npm install
-      - name: Set env to MOLOTOV
-        run: echo "STAGE=MOLOTOV" >> $GITHUB_ENV
       - name: Deploy billing service
         run: npm run deploy-billing
         env:
@@ -54,9 +50,5 @@ jobs:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: npm install
-      - name: Set env to MOLOTOV
-        run: echo "STAGE=MOLOTOV" >> $GITHUB_ENV
       - name: Deploy connectivity service
         run: npm run deploy-connectivity
-        env:
-          MOLOTOV_CONNECTIVITY: 123
