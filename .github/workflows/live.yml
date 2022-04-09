@@ -34,10 +34,10 @@ jobs:
               - 'package.json'
               - 'package-lock.json'
               - 'packages/connectivity/**'
-   outputs:
-     purchase_change: ${{ steps.changes.outputs.purchase_change }}
-     billing_change: ${{ steps.changes.outputs.billing_change }}
-     connectivity_change: ${{ steps.changes.outputs.connectivity_change }}
+    outputs:
+      purchase_change: ${{ steps.changes.outputs.purchase_change }}
+      billing_change: ${{ steps.changes.outputs.billing_change }}
+      connectivity_change: ${{ steps.changes.outputs.connectivity_change }}
 
      
   deploy-purchase-service:
