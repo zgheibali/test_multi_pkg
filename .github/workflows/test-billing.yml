@@ -1,4 +1,4 @@
-name: test-billing ci/cd-workflow
+name: test-billing
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: test-purchase ci/cd-workflow
+name: test-purchase
 
 on:
   push:

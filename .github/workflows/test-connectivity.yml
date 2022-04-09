@@ -1,4 +1,4 @@
-name: test-connectivity ci/cd-workflow
+name: test-connectivity
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - live
       - master
     paths:
-      - packages/connectivity/*
+      - packages/connectivity/**
 
 jobs:
   run-tests:
