@@ -47,7 +47,7 @@ jobs:
       billing_change: ${{ needs.analyse-services.outputs.billing_change }}
       connectivity_change: ${{ needs.analyse-services.outputs.connectivity_change }}
 
-    if: needs.analyse-services.outputs.purchase_change
+    if: ${{ needs.analyse-services.outputs.purchase_change }}
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
@@ -59,7 +59,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     needs: analyse-services
-    if: needs.analyse-services.outputs.connectivity_change
+    if: ${{ needs.analyse-services.outputs.connectivity_change }}
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
@@ -71,7 +71,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     needs: analyse-services
-    if: needs.analyse-services.outputs.billing_change
+    if: ${{ needs.analyse-services.outputs.billing_change }}
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
