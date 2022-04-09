@@ -1,0 +1,19 @@
+name: test-billing ci/cd-workflow
+
+on:
+  push:
+    branches-ignore:
+      - live
+      - master
+    paths:
+      - packages/billing/*
+    
+
+jobs:
+  run-tests:
+    name: run-test-billing-tests
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@master
+      - name: Run billing unit tests
+        run: npm run test-billing
