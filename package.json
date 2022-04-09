@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "config": "echo \"Generating project configs\"",
-    "test": "echo \"Rununing unit tests\"",
+    "test-purchase": "echo \"Rununing purchase unit tests\"",
+    "test-billing": "echo \"Rununing billing unit tests\"",
+    "test-connectivity": "echo \"Rununing connectivity unit tests\"",
     "deploy-purchase": "ts-node ./packages/purchase/deploy.ts",
     "deploy-billing": "ts-node ./packages/billing/deploy.ts",
     "deploy-connectivity": "ts-node ./packages/connectivity/deploy.ts"
