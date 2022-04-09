@@ -1,20 +1,19 @@
 name: live ci/cd
-
-on:
+'on':
   push:
     branches:
       - live
-
 jobs:
   analyse:
     name: analyse
-    runs-on: [ubuntu-latest]
+    runs-on:
+      - ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
         id: changes
         with:
-          base: 'live'
+          base: live
           filters: |
             purchase_change:
               - '.github/**'
@@ -35,40 +34,39 @@ jobs:
               - 'package-lock.json'
               - 'packages/connectivity/**'
     outputs:
-      purchase_change: ${{ steps.changes.outputs.purchase_change }}
-      billing_change: ${{ steps.changes.outputs.billing_change }}
-      connectivity_change: ${{ steps.changes.outputs.connectivity_change }}
-
-     
+      purchase_change: '${{ steps.changes.outputs.purchase_change }}'
+      billing_change: '${{ steps.changes.outputs.billing_change }}'
+      connectivity_change: '${{ steps.changes.outputs.connectivity_change }}'
   deploy-purchase-service:
     name: deploy-purchase-service
-    runs-on: [ubuntu-latest]
+    runs-on:
+      - ubuntu-latest
     needs: analyse
-    if: ${{ needs.analyse.outputs.purchase_change }}"
+    if: '${{ needs.analyse.outputs.purchase_change }}"'
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
         run: npm install
       - name: Deploy purchase service
         run: npm run deploy-purchase
-
   deploy-connectivity-service:
     name: deploy-connectivity-service
-    runs-on: [ubuntu-latest]
+    runs-on:
+      - ubuntu-latest
     needs: analyse
-    if: ${{ needs.analyse.outputs.connectivity_change }}"
+    if: '${{ needs.analyse.outputs.connectivity_change }}"'
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
         run: npm install
       - name: Deploy connectivity service
         run: npm run deploy-connectivity
-
   deploy-billing-service:
     name: deploy-billing-service
-    runs-on: [ubuntu-latest]
+    runs-on:
+      - ubuntu-latest
     needs: analyse
-    if: ${{ needs.analyse.outputs.billing_change }}"
+    if: '${{ needs.analyse.outputs.billing_change }}"'
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
