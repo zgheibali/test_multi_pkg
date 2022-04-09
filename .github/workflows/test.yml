@@ -16,5 +16,9 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         run: npm install
-      - name: Run unit tests
-        run: lerna run test --since origin/main
+      - name: Run purchase tests
+        run: npm run test-purchase
+      - name: Run connectivity tests
+        run: npm run test-connectivity
+      - name: Run billing tests
+        run: npm run test-billing
