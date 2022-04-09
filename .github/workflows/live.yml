@@ -6,38 +6,75 @@ on:
       - live
 
 jobs:
+
   deploy-purchase-service:
     name: deploy-purchase-service
     runs-on: [ubuntu-latest]
     steps:
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          base: 'live'
+          filters: |
+            purchase_change:
+              - '.github/**'
+              - 'lerna.json'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'packages/purchase/**'
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Install dependencies
         run: npm install
       - name: Deploy purchase service
+        if: steps.changes.outputs.purchase_change == 'true'
         run: npm run deploy-purchase
 
   deploy-connectivity-service:
     name: deploy-connectivity-service
     runs-on: [ubuntu-latest]
     steps:
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          base: 'live'
+          filters: |
+            connectivity_change:
+              - '.github/**'
+              - 'lerna.json'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'packages/connectivity/**'
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Install dependencies
         run: npm install
       - name: Deploy connectivity service
+        if: steps.changes.outputs.connectivity_change == 'true'
         run: npm run deploy-connectivity
 
   deploy-billing-service:
     name: deploy-billing-service
     runs-on: [ubuntu-latest]
     steps:
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          base: 'live'
+          filters: |
+            billing_change:
+              - '.github/**'
+              - 'lerna.json'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'packages/billing/**'
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Install dependencies
         run: npm install
       - name: Deploy billing service
+        if: steps.changes.outputs.billing_change == 'true'
         run: npm run deploy-billing
