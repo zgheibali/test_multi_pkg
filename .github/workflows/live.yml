@@ -11,7 +11,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
-        uses: dorny/paths-filter@v2
+      - uses: dorny/paths-filter@v2
         id: changes
         with:
           base: 'live'
@@ -58,6 +58,7 @@ jobs:
     needs: analyse
     if: ${{ needs.analyse.outputs.connectivity_change }}"
     steps:
+      - uses: actions/checkout@v3
       - name: Install dependencies
         run: npm install
       - name: Deploy connectivity service
