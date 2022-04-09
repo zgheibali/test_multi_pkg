@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Rununing connectivity unit tests\"",
+    "deploy": "ts-node ./packages/connectivity/deploy.ts"
   },
   "author": "",
   "license": "ISC"

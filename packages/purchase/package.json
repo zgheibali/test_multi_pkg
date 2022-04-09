@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Rununing purchase unit tests\"",
+    "deploy": "ts-node ./packages/purchase/deploy.ts"
   },
   "author": "",
   "license": "ISC"
