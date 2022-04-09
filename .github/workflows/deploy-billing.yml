@@ -10,7 +10,6 @@ jobs:
   deploy-billing-service:
     name: deploy-billing-service
     runs-on: [ubuntu-latest]
-    needs: run-tests
     steps:
       - uses: actions/checkout@main
       - name: Install dependencies

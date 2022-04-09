@@ -7,7 +7,6 @@ on:
       - main
     paths:
       - packages/billing/**
-    
 
 jobs:
   run-tests:
