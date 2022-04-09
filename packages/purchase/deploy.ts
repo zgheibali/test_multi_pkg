@@ -1,5 +1,5 @@
 export const main = () => {
-  console.log(process.env);
+  console.log(process.env); 
 };
 
 main();
