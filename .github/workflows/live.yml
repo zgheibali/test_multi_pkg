@@ -6,14 +6,14 @@ on:
       - live
 
 jobs:
-  run-tests:
-    name: run-tests
+  deploy-live:
+    name: deploy-live
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
-      - run: |
-          git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Install dependencies
         run: npm install
-      - name: Run unit tests
-        run: lerna run deploy --since origin/main
+      - name: Deploy services
+        run: lerna run deploy --since origin/live
