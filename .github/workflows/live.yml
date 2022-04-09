@@ -1,5 +1,5 @@
 name: live ci/cd
-'on':
+"on":
   push:
     branches:
       - live
@@ -34,9 +34,9 @@ jobs:
               - 'package-lock.json'
               - 'packages/connectivity/**'
     outputs:
-      purchase_change: '${{ steps.changes.outputs.purchase_change }}'
-      billing_change: '${{ steps.changes.outputs.billing_change }}'
-      connectivity_change: '${{ steps.changes.outputs.connectivity_change }}'
+      purchase_change: "${{ steps.changes.outputs.purchase_change }}"
+      billing_change: "${{ steps.changes.outputs.billing_change }}"
+      connectivity_change: "${{ steps.changes.outputs.connectivity_change }}"
   deploy-purchase-service:
     name: deploy-purchase-service
     runs-on:
@@ -46,9 +46,9 @@ jobs:
       test: ${{ needs.analyse-services.outputs.purchase_change }}
       test2: ${{ needs.analyse-services.outputs.purchase_change }} == 'true'
       test3: ${{ needs.analyse-services.outputs.purchase_change }} == true
-      test4:  needs.analyse-services.outputs.purchase_change == "true"
+      test4: needs.analyse-services.outputs.purchase_change == "true"
       test5: ${{ needs.analyse-services.outputs.purchase_change == true }}
-      test6: ${{ needs.analyse-services.outputs.purchase_change == "true" }}
+      test6: ${{ needs.analyse-services.outputs.purchase_change == 'true' }}
 
     if: ${{ needs.analyse-services.outputs.purchase_change }} == "true"
     steps:
