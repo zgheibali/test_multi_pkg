@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          git fetch --no-tags --prune --depth=1 origin +refs/heads/master:refs/remotes/origin/master
+          git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
       - name: Install dependencies
         run: npm install
       - name: Run unit tests
