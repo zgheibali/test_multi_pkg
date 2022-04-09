@@ -43,9 +43,9 @@ jobs:
       - ubuntu-latest
     needs: analyse-services
     env:
-      purchase_change: needs.analyse-services.outputs.purchase_change
-      billing_change: needs.analyse-services.outputs.billing_change
-      connectivity_change: needs.analyse-services.outputs.connectivity_change
+      purchase_change: ${{ needs.analyse-services.outputs.purchase_change }}
+      billing_change: ${{ needs.analyse-services.outputs.billing_change }}
+      connectivity_change: ${{ needs.analyse-services.outputs.connectivity_change }}
 
     if: needs.analyse-services.outputs.purchase_change
     steps:
