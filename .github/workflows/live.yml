@@ -11,6 +11,9 @@ jobs:
     name: deploy-purchase-service
     runs-on: [ubuntu-latest]
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: dorny/paths-filter@v2
         id: changes
         with:
@@ -22,9 +25,6 @@ jobs:
               - 'package.json'
               - 'package-lock.json'
               - 'packages/purchase/**'
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Install dependencies
         run: npm install
       - name: Deploy purchase service
@@ -35,6 +35,9 @@ jobs:
     name: deploy-connectivity-service
     runs-on: [ubuntu-latest]
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: dorny/paths-filter@v2
         id: changes
         with:
@@ -46,9 +49,6 @@ jobs:
               - 'package.json'
               - 'package-lock.json'
               - 'packages/connectivity/**'
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Install dependencies
         run: npm install
       - name: Deploy connectivity service
@@ -59,6 +59,9 @@ jobs:
     name: deploy-billing-service
     runs-on: [ubuntu-latest]
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: dorny/paths-filter@v2
         id: changes
         with:
@@ -70,9 +73,6 @@ jobs:
               - 'package.json'
               - 'package-lock.json'
               - 'packages/billing/**'
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Install dependencies
         run: npm install
       - name: Deploy billing service
