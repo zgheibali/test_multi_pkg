@@ -6,7 +6,7 @@ on:
       - live
       - master
     paths:
-      - packages/purchase/*
+      - packages/purchase/**
     
 
 jobs:

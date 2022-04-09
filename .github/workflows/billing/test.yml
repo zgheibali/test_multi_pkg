@@ -6,7 +6,7 @@ on:
       - live
       - master
     paths:
-      - packages/billing/*
+      - packages/billing/**
     
 
 jobs:

@@ -5,7 +5,7 @@ on:
     branches:
       - live
     paths:
-      - packages/purchase/*
+      - packages/purchase/**
 
 jobs:
   deploy-purchase-service:
