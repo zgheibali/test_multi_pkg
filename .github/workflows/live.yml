@@ -10,6 +10,7 @@ jobs:
   deploy-purchase-service:
     name: deploy-purchase-service
     runs-on: [ubuntu-latest]
+    if: false
     steps:
       - uses: actions/checkout@v3
         with:
@@ -34,6 +35,7 @@ jobs:
   deploy-connectivity-service:
     name: deploy-connectivity-service
     runs-on: [ubuntu-latest]
+    if: false
     steps:
       - uses: actions/checkout@v3
         with:
@@ -58,6 +60,7 @@ jobs:
   deploy-billing-service:
     name: deploy-billing-service
     runs-on: [ubuntu-latest]
+    if: true
     steps:
       - uses: actions/checkout@v3
         with:
