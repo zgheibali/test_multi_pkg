@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"Rununing billing unit tests\"",
+    "deploy": "ts-node ./packages/billing/deploy.ts"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {}
