@@ -1,6 +1,6 @@
 export const main = () => {
   console.log(process.env);
-  console.log("Updated billing service")
+  console.log("updated again :D")
 };
 
 main();
