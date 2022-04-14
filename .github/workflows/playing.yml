@@ -89,7 +89,7 @@ jobs:
   after-always:
     name: after-always
     needs: [always]
-    if: ${{ always() !(contains(needs.*.result, 'cancelled'))  }}
+    if: ${{ always() && !(contains(needs.*.result, 'cancelled'))  }}
     runs-on: ubuntu-latest
 
     steps:
