@@ -9,7 +9,7 @@ on:
 jobs:
   a:
     name: a
-    if: false
+    if: true
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
       
   b:
     name: b
-    if: false
+    if: true
     runs-on: ubuntu-latest
 
     steps:
