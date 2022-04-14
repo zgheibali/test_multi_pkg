@@ -38,7 +38,7 @@ jobs:
     name: always
     needs: [a, b, c]
     runs-on: ubuntu-latest
-
+    if: ${{ always() }}
     steps:
       - run: echo "Hello world"
       - run: echo ${{needs.a.result}}
