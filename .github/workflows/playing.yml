@@ -96,5 +96,7 @@ jobs:
             array=${{needs.*.result}}
             for item in ${array[*]}
             do
-              echo  "$item"
+              echo  "$item.a"
+              echo  "$item.b"
+              echo  "$item.c"
             done
