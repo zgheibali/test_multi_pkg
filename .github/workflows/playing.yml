@@ -77,7 +77,7 @@ jobs:
   always:
     name: always
     needs: [a, b, c]
-    if: ${{  always() }}
+    if: false
     runs-on: ubuntu-latest
 
     steps:
