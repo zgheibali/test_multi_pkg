@@ -97,3 +97,28 @@ jobs:
       - run: echo ${{needs.always.result}}
       - run: echo "${{ toJSON(needs) }}"
 
+
+  side:
+    name: side
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
+
+  side-1:
+    name: side-1
+    needs: [side]
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
+
+  side-2:
+    name: side-2
+    needs: [side-1]
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
+  
+
