@@ -96,5 +96,5 @@ jobs:
             array=${{needs.*.result}}
             for item in ${array[*]}
             do
-              echo ${{item}}
+              echo  "$item"
             done
