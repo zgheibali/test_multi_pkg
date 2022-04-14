@@ -2,8 +2,7 @@ name: test ci/cd
 
 on:
   push:
-    branches-ignore:
-      - live
+    branches:
       - main
 
 jobs:
