@@ -8,13 +8,13 @@ on:
 
 jobs:
   a:
-    if: false
+    if: true
     runs-on: ubuntu-latest
 
     steps:
       - run: echo "Hello world"
   b:
-    if: false
+    if: true
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
       # - name: Try to fail
       #   run: exit 1
   c:
-    if: false
+    if: true
     runs-on: ubuntu-latest
 
     steps:
