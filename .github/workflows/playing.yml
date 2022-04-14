@@ -44,7 +44,7 @@ jobs:
     steps:
       - run: echo "Hello world"
 
-  no-contains-failure:
+  no-failure:
     needs: [a, b, c]
     if: ${{  !failure() }}
     runs-on: ubuntu-latest
