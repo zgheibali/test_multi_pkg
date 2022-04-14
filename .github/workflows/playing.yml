@@ -38,7 +38,7 @@ jobs:
     name: always
     needs: [a, b, c]
     runs-on: ubuntu-latest
-    if: ${{ always() }}
+    if: ${{ always() && !failure() }}
     steps:
       - run: echo "Hello world"
       - run: echo ${{needs.a.result}}
@@ -47,7 +47,7 @@ jobs:
       - name: Sleep for 10 seconds
         run: sleep 10s
         shell: bash
-        
+
   after-always:
     name: after-always
     needs: [always]
