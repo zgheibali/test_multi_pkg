@@ -19,8 +19,8 @@ jobs:
 
     steps:
       - run: echo "Hello world"
-      - name: Try to fail
-        run: exit 1
+      # - name: Try to fail
+      #   run: exit 1
   c:
     if: true
     runs-on: ubuntu-latest
