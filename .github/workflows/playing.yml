@@ -14,7 +14,7 @@ jobs:
     steps:
       - run: echo "Hello world"
   b:
-    if: true
+    if: false
     runs-on: ubuntu-latest
 
     steps:
@@ -27,6 +27,8 @@ jobs:
 
     steps:
       - run: echo "Hello world"
+      - name: Try to fail
+        run: exit 1
 
   default:
     needs: [a, b, c]
