@@ -89,7 +89,7 @@ jobs:
   after-always:
     name: after-always
     needs: [always]
-    if: ${{ always() && !failure() && !cancelled() }}
+    if: ${{ always() && !cancelled() }}
     runs-on: ubuntu-latest
 
     steps:
