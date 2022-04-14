@@ -27,19 +27,27 @@ jobs:
 
     steps:
       - run: echo "Hello world"
-  
-  d:
-   needs: [a, b, c]
-   if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
-   runs-on: ubuntu-latest
 
-   steps:
-    - run: echo "Hello world"
+  default:
+    needs: [a, b, c]
+    if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
+    runs-on: ubuntu-latest
 
-  my-case:
-   needs: [a, b, c]
-   if: ${{  !(contains(needs.*.result, 'failure')) }}
-   runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello world"
 
-   steps:
-    - run: echo "Hello world"
+  no-contains-failure:
+    needs: [a, b, c]
+    if: ${{  !(contains(needs.*.result, 'failure')) }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
+
+  no-contains-failure:
+    needs: [a, b, c]
+    if: ${{  !failure() }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
