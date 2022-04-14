@@ -30,8 +30,8 @@ jobs:
 
     steps:
       - run: echo "Hello world"
-      - name: Try to fail
-        run: exit 1
+      # - name: Try to fail
+      #   run: exit 1
 
   # default:
   #   needs: [a, b, c]
@@ -85,6 +85,8 @@ jobs:
       - run: echo ${{needs.a.result}}
       - run: echo ${{needs.b.result}}
       - run: echo ${{needs.c.result}}
+      - name: Try to fail
+        run: exit 1
 
   after-always:
     name: after-always
