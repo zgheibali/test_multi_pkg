@@ -62,10 +62,18 @@ jobs:
     steps:
       - run: echo "Hello world"
 
+  best-one:
+    needs: [a, b, c]
+    if: ${{ always() && !(contains(needs.*.result, 'skipped')) && !(contains(needs.*.result, 'failure')) }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
+
   always:
     needs: [a, b, c]
     runs-on: ubuntu-latest
-    if: always()
+    if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
     steps:
       - run: echo ${{needs.a.result}}
       - run: echo ${{needs.b.result}}
