@@ -91,7 +91,10 @@ jobs:
       - run: echo ${{needs.c.result}}
       - run: echo ${{needs.always.result}}
       - run: echo ${{needs.*.result}}
-      - name: pass envs
-        run: echo "hello world"
-        env:
-          stuff: ${{needs.*.result}}
+      - name: loop over array
+        run: |
+            array=${{needs.*.result}}
+            for item in ${array[*]}
+            do
+              echo ${{item}}
+            done
