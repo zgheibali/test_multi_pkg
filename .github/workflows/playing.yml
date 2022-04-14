@@ -46,7 +46,7 @@ jobs:
     steps:
       - run: echo "Hello world"
 
-  no-contains-failure:
+  no-contain-failure:
     needs: [a, b, c]
     if: ${{  !(contains(needs.*.result, 'failure')) }}
     runs-on: ubuntu-latest
@@ -62,15 +62,7 @@ jobs:
     steps:
       - run: echo "Hello world"
 
-  best-one:
-    needs: [a, b, c]
-    if: ${{ always() && !(contains(needs.*.result, 'skipped')) && !(contains(needs.*.result, 'failure')) }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - run: echo "Hello world"
-
-  always:
+  always-success-no-failure:
     needs: [a, b, c]
     runs-on: ubuntu-latest
     if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
@@ -78,3 +70,19 @@ jobs:
       - run: echo ${{needs.a.result}}
       - run: echo ${{needs.b.result}}
       - run: echo ${{needs.c.result}}
+
+  always:
+    needs: [a, b, c]
+    if: ${{  always() }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
+
+  after-always:
+    needs: [always]
+    if: ${{ always() && !(contains(needs.*.result, 'skipped')) }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
