@@ -101,3 +101,5 @@ jobs:
       - run: echo ${{needs.always.*.c.result}}
       - run: echo ${{needs.*.c.result}}
       - run: echo ${{needs.always.result}}
+      - run: echo "${{ toJSON(needs) }}"
+
