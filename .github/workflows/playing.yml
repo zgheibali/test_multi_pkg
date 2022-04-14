@@ -30,46 +30,46 @@ jobs:
       # - name: Try to fail
       #   run: exit 1
 
-  default:
-    needs: [a, b, c]
-    # if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
-    runs-on: ubuntu-latest
+  # default:
+  #   needs: [a, b, c]
+  #   if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - run: echo "Hello world"
+  #   steps:
+  #     - run: echo "Hello world"
 
-  always-no-contains-failure:
-    needs: [a, b, c]
-    if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
-    runs-on: ubuntu-latest
+  # always-no-contains-failure:
+  #   needs: [a, b, c]
+  #   if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - run: echo "Hello world"
+  #   steps:
+  #     - run: echo "Hello world"
 
-  no-contain-failure:
-    needs: [a, b, c]
-    if: ${{  !(contains(needs.*.result, 'failure')) }}
-    runs-on: ubuntu-latest
+  # no-contain-failure:
+  #   needs: [a, b, c]
+  #   if: ${{  !(contains(needs.*.result, 'failure')) }}
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - run: echo "Hello world"
+  #   steps:
+  #     - run: echo "Hello world"
 
-  no-failure:
-    needs: [a, b, c]
-    if: ${{  !failure() }}
-    runs-on: ubuntu-latest
+  # no-failure:
+  #   needs: [a, b, c]
+  #   if: ${{  !failure() }}
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - run: echo "Hello world"
+  #   steps:
+  #     - run: echo "Hello world"
 
-  always-success-no-failure:
-    needs: [a, b, c]
-    runs-on: ubuntu-latest
-    if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
-    steps:
-      - run: echo ${{needs.a.result}}
-      - run: echo ${{needs.b.result}}
-      - run: echo ${{needs.c.result}}
+  # always-success-no-failure:
+  #   needs: [a, b, c]
+  #   runs-on: ubuntu-latest
+  #   if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
+  #   steps:
+  #     - run: echo ${{needs.a.result}}
+  #     - run: echo ${{needs.b.result}}
+  #     - run: echo ${{needs.c.result}}
 
   always:
     needs: [a, b, c]
@@ -90,16 +90,4 @@ jobs:
       - run: echo ${{needs.b.result}}
       - run: echo ${{needs.c.result}}
       - run: echo ${{needs.always.result}}
-      - run: echo ${{needs.result}}
       - run: echo ${{needs.*.result}}
-      - name: Print array items
-        run: |
-            for item in ${{needs.*.result}}
-            do
-              if [[ "$item" == "apple" ]]; then
-                echo "Found Juice"
-              fi
-              if [[ "$item" == "apple-juice" ]]; then
-                echo "Found Juice Full Name"
-              fi
-            done
