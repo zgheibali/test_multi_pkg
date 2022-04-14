@@ -101,7 +101,7 @@ jobs:
   side:
     name: side
     runs-on: ubuntu-latest
-
+    if: false
     steps:
       - run: echo "Hello world"
 
