@@ -33,47 +33,6 @@ jobs:
       # - name: Try to fail
       #   run: exit 1
 
-  # default:
-  #   needs: [a, b, c]
-  #   if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - run: echo "Hello world"
-
-  # always-no-contains-failure:
-  #   needs: [a, b, c]
-  #   if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - run: echo "Hello world"
-
-  # no-contain-failure:
-  #   needs: [a, b, c]
-  #   if: ${{  !(contains(needs.*.result, 'failure')) }}
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - run: echo "Hello world"
-
-  # no-failure:
-  #   needs: [a, b, c]
-  #   if: ${{  !failure() }}
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - run: echo "Hello world"
-
-  # always-success-no-failure:
-  #   needs: [a, b, c]
-  #   runs-on: ubuntu-latest
-  #   if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
-  #   steps:
-  #     - run: echo ${{needs.a.result}}
-  #     - run: echo ${{needs.b.result}}
-  #     - run: echo ${{needs.c.result}}
-
   always:
     name: always
     needs: [a, b, c]
@@ -85,9 +44,6 @@ jobs:
       - run: echo ${{needs.a.result}}
       - run: echo ${{needs.b.result}}
       - run: echo ${{needs.c.result}}
-      - name: Sleep for 30 seconds
-        run: sleep 30s
-        shell: bash
 
   after-always:
     name: after-always
@@ -99,29 +55,6 @@ jobs:
       - run: echo "Hello world"
       - run: echo ${{needs.always.result}}
       - run: echo "${{ toJSON(needs) }}"
-
-
-  side:
-    name: side
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello world"
-
-
-  side-1:
-    name: side-1
-    needs: [side]
-    runs-on: ubuntu-latest
-
-    steps:
-      - run: echo "Hello world"
-
-  side-2:
-    name: side-2
-    needs: [side-1]
-    runs-on: ubuntu-latest
-
-    steps:
-      - run: echo "Hello world"
-  
-
+      # - name: Sleep for 30 seconds
+      #   run: sleep 30s
+      #   shell: bash
