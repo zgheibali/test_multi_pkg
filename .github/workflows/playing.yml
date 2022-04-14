@@ -89,7 +89,7 @@ jobs:
   after-always:
     name: after-always
     needs: [always]
-    if: ${{ always() && !(contains(needs.*.result, 'skipped')) }}
+    if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
     runs-on: ubuntu-latest
 
     steps:
@@ -101,7 +101,6 @@ jobs:
   side:
     name: side
     runs-on: ubuntu-latest
-    if: false
     steps:
       - run: echo "Hello world"
 
