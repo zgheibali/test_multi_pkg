@@ -84,7 +84,8 @@ jobs:
     name: deploy-after-all-service
     runs-on:
       - ubuntu-latest
-    if: ${{ !failure() }}
+    continue-on-error: false
+    # if: ${{ !failure() }}
     needs:
       - deploy-purchase-service
       - deploy-connectivity-service
