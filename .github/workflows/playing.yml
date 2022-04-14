@@ -16,7 +16,7 @@ jobs:
       - run: echo "Hello world"
   b:
     name: b
-    if: false
+    if: true
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
       #   run: exit 1
   c:
     name: c
-    if: false
+    if: true
     runs-on: ubuntu-latest
 
     steps:
