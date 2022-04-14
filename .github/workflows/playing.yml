@@ -89,7 +89,7 @@ jobs:
   after-always:
     name: after-always
     needs: [always]
-    # if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
+    if: ${{ always() && !failure() && !cancelled() }}
     runs-on: ubuntu-latest
 
     steps:
