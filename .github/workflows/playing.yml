@@ -9,14 +9,14 @@ on:
 jobs:
   a:
     name: a
-    if: true
+    if: false
     runs-on: ubuntu-latest
 
     steps:
       - run: echo "Hello world"
   b:
     name: b
-    if: true
+    if: false
     runs-on: ubuntu-latest
 
     steps:
