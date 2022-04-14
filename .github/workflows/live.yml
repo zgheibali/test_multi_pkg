@@ -111,3 +111,37 @@ jobs:
         run: npm install
       - name: Deploy after all service
         run: npm run deploy-after-all
+
+
+  continue-on-error:
+    name: continue-on-error
+    runs-on:
+      - ubuntu-latest
+    continue-on-error: true
+    needs:
+      - deploy-purchase-service
+      - deploy-connectivity-service
+      - deploy-billing-service
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy after all service
+        run: npm run deploy-after-all
+
+
+  stop-on-error:
+    name: stop-on-error
+    runs-on:
+      - ubuntu-latest
+    continue-on-error: false
+    needs:
+      - deploy-purchase-service
+      - deploy-connectivity-service
+      - deploy-billing-service
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy after all service
+        run: npm run deploy-after-all
