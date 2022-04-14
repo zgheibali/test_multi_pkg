@@ -94,12 +94,6 @@ jobs:
 
     steps:
       - run: echo "Hello world"
-      - run: echo ${{needs.always.needs.a.result}}
-      - run: echo ${{needs.always.needs.b.result}}
-      - run: echo ${{needs.always.needs.c.result}}
-      - run: echo ${{needs.always.jobs.c.result}}
-      - run: echo ${{needs.always.*.c.result}}
-      - run: echo ${{needs.*.c.result}}
       - run: echo ${{needs.always.result}}
       - run: echo "${{ toJSON(needs) }}"
 
