@@ -36,6 +36,14 @@ jobs:
     steps:
       - run: echo "Hello world"
 
+  always-no-contains-failure:
+    needs: [a, b, c]
+    if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello world"
+
   no-contains-failure:
     needs: [a, b, c]
     if: ${{  !(contains(needs.*.result, 'failure')) }}
