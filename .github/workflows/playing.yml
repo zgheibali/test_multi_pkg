@@ -35,6 +35,9 @@ jobs:
 
     steps:
       - run: echo "Hello world"
+      - run: echo ${{needs.a.result}}
+      - run: echo ${{needs.b.result}}
+      - run: echo ${{needs.c.result}}
 
   always-no-contains-failure:
     needs: [a, b, c]
