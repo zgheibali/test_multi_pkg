@@ -92,3 +92,14 @@ jobs:
       - run: echo ${{needs.always.result}}
       - run: echo ${{needs.result}}
       - run: echo ${{needs.*.result}}
+      - name: Print array items
+        run: |
+            for item in ${{needs.*.result}}
+            do
+              if [[ "$item" == "apple" ]]; then
+                echo "Found Juice"
+              fi
+              if [[ "$item" == "apple-juice" ]]; then
+                echo "Found Juice Full Name"
+              fi
+            done
