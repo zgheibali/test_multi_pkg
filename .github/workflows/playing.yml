@@ -89,7 +89,7 @@ jobs:
   after-always:
     name: after-always
     needs: [always]
-    if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
+    # if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
     runs-on: ubuntu-latest
 
     steps:
@@ -120,7 +120,5 @@ jobs:
 
     steps:
       - run: echo "Hello world"
-      - name: Try to fail
-        run: exit 1
   
 
