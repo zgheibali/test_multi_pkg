@@ -80,12 +80,27 @@ jobs:
         run: npm install
       - name: Deploy billing service
         run: npm run deploy-billing
-  deploy-after-all-service:
-    name: deploy-after-all-service
+  no-failure:
+    name: no-failure
     runs-on:
       - ubuntu-latest
-    # continue-on-error: false
-    # if: ${{ !failure() }}
+    if: ${{ !failure() }}
+    needs:
+      - deploy-purchase-service
+      - deploy-connectivity-service
+      - deploy-billing-service
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy after all service
+        run: npm run deploy-after-all
+
+  failure:
+    name: failure
+    runs-on:
+      - ubuntu-latest
+    if: ${{ failure() }}
     needs:
       - deploy-purchase-service
       - deploy-connectivity-service
