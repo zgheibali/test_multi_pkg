@@ -91,3 +91,6 @@ jobs:
       - run: echo ${{needs.c.result}}
       - run: echo ${{needs.always.result}}
       - run: echo ${{needs.*.result}}
+      - name: pass envs
+        env:
+        stuff: ${{needs.*.result}}
