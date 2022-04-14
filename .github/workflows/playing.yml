@@ -8,7 +8,7 @@ on:
 
 jobs:
   a:
-    if: true
+    if: false
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,7 @@ jobs:
     steps:
       - run: echo "Hello world"
   c:
-    if: false
+    if: true
     runs-on: ubuntu-latest
 
     steps:
