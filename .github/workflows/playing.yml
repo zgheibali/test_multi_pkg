@@ -35,3 +35,11 @@ jobs:
 
    steps:
     - run: echo "Hello world"
+
+  my-case:
+   needs: [a, b, c]
+   if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
+   runs-on: ubuntu-latest
+
+   steps:
+    - run: echo "Hello world"
