@@ -38,7 +38,7 @@ jobs:
 
   my-case:
    needs: [a, b, c]
-   if: ${{ always() && !(contains(needs.*.result, 'failure')) }}
+   if: ${{  !(contains(needs.*.result, 'failure')) }}
    runs-on: ubuntu-latest
 
    steps:
