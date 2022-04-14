@@ -85,7 +85,10 @@ jobs:
       - run: echo ${{needs.a.result}}
       - run: echo ${{needs.b.result}}
       - run: echo ${{needs.c.result}}
-
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
+        
   after-always:
     name: after-always
     needs: [always]
@@ -96,9 +99,7 @@ jobs:
       - run: echo "Hello world"
       - run: echo ${{needs.always.result}}
       - run: echo "${{ toJSON(needs) }}"
-      - name: Sleep for 30 seconds
-        run: sleep 30s
-        shell: bash
+
 
   side:
     name: side
